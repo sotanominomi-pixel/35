@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>N Clock — Full</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <div id="display" class="time-display">00:00:00</div>
+
+  <!-- speed slider only for clock -->
+  <div class="slider-box" id="speedSliderBox">
+    <div class="label-row">
+      <div>1日の長さ</div>
+      <div id="labelHours">24 時間</div>
+    </div>
+    <input id="sliderHours" type="range" min="12" max="48" step="1" value="24">
+  </div>
+
+  <!-- tabs -->
+  <div class="tabs" role="tablist" aria-label="mode">
+    <button id="tabClock" class="active">時計</button>
+    <button id="tabStopwatch">ストップウォッチ</button>
+    <button id="tabAlarm">アラーム</button>
+  </div>
+
+  <!-- stopwatch controls -->
+  <div id="stopwatchArea" class="mode-area">
+    <div class="controls">
+      <button id="startBtn" class="btn-circle btn-start">Start</button>
+      <button id="lapBtn" class="btn-lap" disabled>Lap</button>
+      <button id="resetBtn" class="btn-reset" disabled>Reset</button>
+    </div>
+    <div class="laps" id="laps"></div>
+  </div>
+
+  <!-- alarm controls -->
+  <div id="alarmArea" class="mode-area">
+    <div class="alarm-controls">
+      <input type="time" id="alarmTime" step="60">
+      <button id="addAlarmBtn">追加</button>
+    </div>
+    <div class="alarm-list" id="alarmList"></div>
+  </div>
+
+  <div class="footer">設定は自動で保存されます。</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
