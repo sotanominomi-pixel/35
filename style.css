@@ -1,0 +1,48 @@
+:root{
+  --bg-light:#fff;
+  --text-light:#000;
+  --accent:#333;
+  --muted:#666;
+  --shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg-light:#000;
+    --text-light:#fff;
+    --accent:#ccc;
+    --muted:#888;
+  }
+}
+
+html,body{height:100%; margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial; background:var(--bg-light); color:var(--text-light);}
+.wrap{min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:28px; gap:18px;}
+.time-display{font-weight:600; font-size:calc(40px + 8vw); line-height:1; letter-spacing:2px;}
+.slider-box{width:min(760px,96%);}
+.label-row{display:flex; justify-content:space-between; margin-bottom:8px; font-size:16px; color:var(--muted);}
+input[type="range"]{-webkit-appearance:none; width:100%; height:14px; border-radius:10px; background:#e6e6e6; outline:none; margin:0; padding:0;}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none; width:36px;height:36px;border-radius:50%; background:#000;border:4px solid white;margin-top:-11px;}
+input[type="range"]::-moz-range-thumb{width:36px;height:36px;border-radius:50%; background:#000;border:4px solid white;}
+
+.tabs{display:flex; gap:8px; background: rgba(0,0,0,0.04); padding:6px; border-radius:14px; box-shadow:var(--shadow);}
+.tabs button{background:transparent; border:none; padding:12px 22px; border-radius:10px; font-weight:600; cursor:pointer; color:var(--text-light); transition: all .15s;}
+.tabs button.active{background:var(--text-light); color:var(--bg-light); box-shadow: 0 6px 18px rgba(0,0,0,0.08);}
+
+.mode-area{display:none; margin-top:12px; text-align:center;}
+.controls{display:flex; gap:16px; justify-content:center; margin-top:6px;}
+.btn-circle{width:88px;height:88px;border-radius:50%; display:inline-grid; place-items:center; font-weight:700; font-size:16px; color:white; border:none; box-shadow: 0 10px 30px rgba(0,0,0,0.08); cursor:pointer;}
+.btn-start{background:#333;}
+.btn-stop{background:#555;}
+.btn-lap, .btn-reset{background:#eee; color:#000; border:1px solid #ccc; width:64px; height:64px; font-size:14px; border-radius:12px;}
+
+.laps{width:min(760px,96%); max-height:220px; overflow:auto; margin-top:12px; border-top:1px solid rgba(0,0,0,0.06); padding-top:10px;}
+.lap-item{display:flex; justify-content:space-between; padding:8px 6px; font-size:15px; color:var(--muted);}
+
+.alarm-controls{display:flex; gap:8px; justify-content:center; margin-bottom:8px;}
+.alarm-list{width:min(760px,96%); max-height:240px; overflow:auto; margin-top:12px; border-top:1px solid rgba(0,0,0,0.06); padding-top:10px;}
+.alarm-item{display:flex; justify-content:space-between; padding:8px 6px; font-size:16px; color:var(--text-light);}
+.alarm-item button{border:none; background:#eee; color:#000; border-radius:8px; cursor:pointer; padding:4px 10px;}
+
+.footer{font-size:13px; color:var(--muted); margin-top:8px;}
+
+@media(max-width:420px){.btn-circle{width:72px;height:72px;font-size:14px;} .time-display{font-size:calc(50px+12vw);}}
